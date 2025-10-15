@@ -118,6 +118,7 @@ export default function LiveMode() {
               {!capturedImage ? (
                 <div className={styles.webcamWrapper}>
                   <div className={styles.videoContainer}>
+                    <p>Put your hand in the frame!</p>
                     <ReactWebcam
                       ref={webcam}
                       mirrored={isFront}
@@ -126,8 +127,8 @@ export default function LiveMode() {
                       playsInline
                       videoConstraints={{
                         facingMode: isFront
-                          ? { exact: "environment" }
-                          : { exact: "user" },
+                          ? { exact: "user" }
+                          : { exact: "environment" },
                       }}
                       className={styles.webcam}
                     />
