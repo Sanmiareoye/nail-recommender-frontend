@@ -9,12 +9,6 @@ function UploadMode() {
   const [toggleForm, setToggleForm] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    if (results.length > 0) {
-      setToggleForm(false);
-    }
-  }, [results]);
-
   const handleFileInputChange = (event) => {
     setFile(event.target.files[0]);
     setResults([]);
@@ -29,6 +23,7 @@ function UploadMode() {
 
     try {
       setIsLoading(true);
+      setToggleForm(false);
 
       const endpoint =
         "https://nail-recommender-backend-production.up.railway.app/search/";

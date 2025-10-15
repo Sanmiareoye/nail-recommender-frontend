@@ -20,12 +20,6 @@ export default function LiveMode() {
   const handLandmarkerRef = useRef(null);
 
   useEffect(() => {
-    if (results.length > 0) {
-      setToggleWebcam(false);
-    }
-  }, [results]);
-
-  useEffect(() => {
     const init = async () => {
       const vision = await FilesetResolver.forVisionTasks(
         "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
@@ -70,6 +64,7 @@ export default function LiveMode() {
     formData.append("file", file);
 
     try {
+      setToggleWebcam(false);
       const response = await fetch(endpoint, {
         method: "POST",
         body: formData,
@@ -124,14 +119,15 @@ export default function LiveMode() {
                 <div className={styles.webcamWrapper}>
                   <div className={styles.videoContainer}>
                     <ReactWebcam
-                      key={isFront ? "front" : "back"}
                       ref={webcam}
                       mirrored={isFront}
                       screenshotFormat="image/jpeg"
                       screenshotQuality={1}
                       playsInline
                       videoConstraints={{
-                        facingMode: isFront ? "environment" : "user",
+                        facingMode: isFront
+                          ? { exact: "user" }
+                          : { exact: "environment" },
                       }}
                       className={styles.webcam}
                     />
