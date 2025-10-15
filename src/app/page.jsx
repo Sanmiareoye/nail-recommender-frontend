@@ -1,7 +1,7 @@
 "use client";
 
 import LiveMode from "../components/LiveMode";
-import ToggleSwitch from "../components/toggle";
+import ToggleSwitch from "../components/Toggle";
 import UploadMode from "../components/UploadMode";
 import { useState } from "react";
 
