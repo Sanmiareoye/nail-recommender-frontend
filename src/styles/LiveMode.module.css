@@ -1,0 +1,452 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #2d2d2d;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Two-column layout for desktop/tablet */
+.content {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.leftColumn {
+  position: sticky;
+  top: 20px;
+  padding-right: 30px;
+}
+
+.rightColumn {
+  min-height: 400px;
+  padding-left: 30px;
+}
+
+.loading {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  color: #8b6f47;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.dropdownToggle {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #cc785c;
+  cursor: pointer;
+  margin-bottom: 5px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  border-bottom: 2px solid #d4c4b0;
+}
+
+.dropdownToggle:hover {
+  color: #b8694f;
+}
+
+.dropdownContainer {
+  background: #fdfcfa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(139, 111, 71, 0.1);
+  border: 1px solid #e8dfd3;
+  padding: 20px;
+  border-bottom: 2px solid #d4c4b0;
+}
+
+.webcamWrapper {
+  background: #fdfcfa;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(139, 111, 71, 0.1);
+  border: 1px solid #e8dfd3;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 20px;
+}
+
+.webcam {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.loadingText {
+  text-align: center;
+  color: #2d2d2d;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.captureButton,
+.flipButton,
+.retakeButton,
+.submitButton {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.captureButton {
+  background: #cc785c;
+  color: white;
+}
+
+.captureButton:hover {
+  background: #b8694f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.3);
+}
+
+.flipButton {
+  background: #8b6f47;
+  color: white;
+}
+
+.flipButton:hover {
+  background: #75603d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 111, 71, 0.3);
+}
+
+.previewContainer {
+  background: #fdfcfa;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(139, 111, 71, 0.1);
+  border: 1px solid #e8dfd3;
+}
+
+.capturedImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(139, 111, 71, 0.15);
+}
+
+.retakeButton {
+  background: #8b6f47;
+  color: white;
+}
+
+.retakeButton:hover {
+  background: #75603d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 111, 71, 0.3);
+}
+
+.submitButton {
+  background: #cc785c;
+  color: white;
+}
+
+.submitButton:hover {
+  background: #b8694f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.3);
+}
+
+.captureButton:active,
+.flipButton:active,
+.retakeButton:active,
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.resultsGrid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.resultItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.resultImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(139, 111, 71, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e8dfd3;
+}
+
+.resultImage:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(139, 111, 71, 0.25);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(45, 45, 45, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  position: relative;
+  background: #fdfcfa;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(139, 111, 71, 0.3);
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modalImage {
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .rightColumn {
+    border-left: 2px solid #d4c4b0;
+  }
+
+  .dropdownToggle {
+    display: none;
+  }
+
+  .dropdownContainer {
+    max-height: none;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .content {
+    grid-template-columns: 30px 1fr;
+    gap: 20px;
+  }
+
+  .leftColumn {
+    padding-right: 20px;
+  }
+
+  .rightColumn {
+    padding-left: 20px;
+  }
+
+  .resultsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .resultImage {
+    height: 180px;
+  }
+}
+
+/* Mobile - stack vertically */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-top: -6px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .leftColumn {
+    position: static;
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: 30px;
+  }
+
+  .dropdownContainer {
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+    padding: 20px;
+    transform-origin: bottom;
+  }
+
+  .expanded {
+    max-height: 1500px;
+    opacity: 1;
+  }
+
+  .collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .dropdownToggle {
+    display: block;
+  }
+
+  .rightColumn {
+    padding-left: 0;
+    padding-top: 0;
+  }
+
+  .webcamWrapper,
+  .previewContainer {
+    padding: 20px;
+    margin-bottom: -25px;
+  }
+
+  .buttonGroup {
+    gap: 10px;
+  }
+
+  .resultsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+  }
+
+  .resultImage {
+    height: 150px;
+  }
+
+  .modalImage {
+    max-width: 95vw;
+    max-height: 70vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .webcamWrapper,
+  .previewContainer {
+    padding: 15px;
+  }
+
+  .captureButton,
+  .flipButton,
+  .retakeButton,
+  .submitButton {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+
+  .resultsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .resultImage {
+    height: 130px;
+    border-radius: 8px;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1400px) {
+  .content {
+    grid-template-columns: 450px 1fr;
+    gap: 40px;
+  }
+
+  .leftColumn {
+    padding-right: 40px;
+  }
+
+  .rightColumn {
+    padding-left: 40px;
+  }
+
+  .resultsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+  }
+
+  .resultImage {
+    height: 220px;
+  }
+}
