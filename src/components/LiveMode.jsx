@@ -131,7 +131,7 @@ export default function LiveMode() {
                       screenshotQuality={1}
                       playsInline
                       videoConstraints={{
-                        facingMode: isFront ? "user" : "environment",
+                        facingMode: isFront ? "environment" : "user",
                       }}
                       className={styles.webcam}
                     />
