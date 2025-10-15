@@ -70,7 +70,6 @@ export default function LiveMode() {
     formData.append("file", file);
 
     try {
-      setIsLoading(true);
       const response = await fetch(endpoint, {
         method: "POST",
         body: formData,
@@ -125,10 +124,12 @@ export default function LiveMode() {
                 <div className={styles.webcamWrapper}>
                   <div className={styles.videoContainer}>
                     <ReactWebcam
+                      key={isFront ? "front" : "back"}
                       ref={webcam}
                       mirrored={isFront}
                       screenshotFormat="image/jpeg"
                       screenshotQuality={1}
+                      playsInline
                       videoConstraints={{
                         facingMode: isFront ? "user" : "environment",
                       }}
@@ -165,7 +166,7 @@ export default function LiveMode() {
                       onClick={handleSubmit}
                       className={styles.submitButton}
                     >
-                      Get Similar Sets!
+                      {isLoading ? "Loading..." : "Get Similar Sets!"}
                     </button>
                   </div>
                 </div>
