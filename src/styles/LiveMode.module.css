@@ -131,7 +131,7 @@
   padding: 12px 20px;
   border: none;
   border-radius: 6px;
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   font-weight: 550;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -408,7 +408,7 @@
   }
 
   .title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     margin-bottom: 15px;
   }
 
