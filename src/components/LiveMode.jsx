@@ -105,7 +105,7 @@ export default function LiveMode() {
     <div>
       <div className={styles.container}>
         <h1 className={styles.title}>
-          {!toggleWebcam ? null : "Get similar styles"}
+          {!toggleWebcam ? null : "Nail Recommendation Model: Take a Picture"}
         </h1>
 
         <div className={styles.content}>
@@ -115,6 +115,7 @@ export default function LiveMode() {
             }`}
           >
             <div className={styles.leftColumn}>
+              <p className={styles.textt}>Put your hand in the frame 👋🏾</p>
               {!capturedImage ? (
                 <div className={styles.webcamWrapper}>
                   <div className={styles.videoContainer}>

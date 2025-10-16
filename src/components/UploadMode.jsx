@@ -59,7 +59,7 @@ function UploadMode() {
     <div>
       <div className={styles.container}>
         <h1 className={styles.title}>
-          {!toggleForm ? null : "Get similar styles"}
+          {!toggleForm ? null : "Nail Recommendation Model: Upload a Set"}
         </h1>
 
         <div className={styles.content}>
@@ -90,7 +90,7 @@ function UploadMode() {
                 </div>
 
                 <button className={styles.uploadButton} type="submit">
-                  Upload
+                  Get similar sets!
                 </button>
               </form>
             </div>
