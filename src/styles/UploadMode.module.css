@@ -122,9 +122,9 @@
   background: #cc785c;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 550;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 20px;
