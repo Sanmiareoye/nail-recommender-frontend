@@ -131,7 +131,7 @@
   padding: 12px 20px;
   border: none;
   border-radius: 6px;
-  font-size: 0.69rem;
+  font-size: 1.1rem;
   font-weight: 550;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -422,7 +422,12 @@
   .retakeButton,
   .submitButton {
     padding: 10px 16px;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
+  }
+
+  .captureButton,
+  .flipButton {
+    height: min-content;
   }
 
   .resultsGrid {
